@@ -6,7 +6,7 @@ Icon=st
 Terminal=false
 Categories=System;TerminalEmulator;
 
-Name=st
+Name=St
 GenericName=Terminal
-Comment=st is a simple terminal implementation for X
+Comment=St is a simple terminal implementation for X
 StartupWMClass=st-256color
