@@ -11,7 +11,6 @@ static char *fonts[] = {
 };
 static size_t currentfont = 0;
 static int borderpx = 2;
-static int cursorblinks = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -167,6 +166,7 @@ static unsigned int defaultrcs = 257;
  * 7: blinking st cursor
  * 8: steady st cursor
  */
+static int cursorblinks = 0;
 static unsigned int cursorstyle = 1;
 static Rune stcursor = 0x2603; /* snowman ("☃") */
 
@@ -517,3 +517,27 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
+
+/**
+ * Undercurl style. Set UNDERCURL_STYLE to one of the available styles.
+ *
+ * Curly: Dunno how to draw it *shrug*
+ *  _   _   _   _
+ * ( ) ( ) ( ) ( )
+ *	 (_) (_) (_) (_)
+ *
+ * Spiky:
+ * /\  /\   /\	/\
+ *   \/  \/	  \/
+ *
+ * Capped:
+ *	_     _     _
+ * / \   / \   / \
+ *    \_/   \_/
+ */
+// Available styles
+#define UNDERCURL_CURLY 0
+#define UNDERCURL_SPIKY 1
+#define UNDERCURL_CAPPED 2
+// Active style
+#define UNDERCURL_STYLE UNDERCURL_SPIKY
